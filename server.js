@@ -12,16 +12,22 @@ const router_OrderDetail = require("./Routes/router_OrderDetail");
 const router_Receipt = require("./Routes/router_Receipt");
 
 var app = express();
+const cors = require("cors");
+app.use(
+  cors({
+    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
+  })
+);
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 
-app.use("/api/product", router_Product);
-app.use("/api/category", router_Category);
-app.use("/api/user", router_User);
-app.use("/api/employee-account", routes_EmployeeAccount);
-app.use("/api/order", router_Order);
-app.use("/api/order-detail", router_OrderDetail);
-app.use("/api/receipt", router_Receipt);
+app.use("/api/product", cors(), router_Product);
+app.use("/api/category", cors(), router_Category);
+app.use("/api/user", cors(), router_User);
+app.use("/api/employee-account", cors(), routes_EmployeeAccount);
+app.use("/api/order", cors(), router_Order);
+app.use("/api/order-detail", cors(), router_OrderDetail);
+app.use("/api/receipt", cors(), router_Receipt);
 
 var server = app.listen(3000, function () {
   console.log("Server listening on port " + server.address().port);
