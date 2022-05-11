@@ -31,7 +31,7 @@ router_Category.post("/", function (req, res, next) {
   });
 });
 router_Category.delete("/:id_category ", function (req, res, next) {
-  Category.deleteCategory(req.params.id_category, function (err, count) {
+  Category.deleteCategory(req.params["id_category "], function (err, count) {
     if (err) {
       res.json(err);
     } else {

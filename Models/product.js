@@ -13,7 +13,7 @@ var Product = {
   },
   addProduct: function (product, callback) {
     return db.query(
-      "Insert into product(name_product,description,price,status,quantity,id_category) values(?,?,?,?,?,?,?)",
+      "Insert into product(name_product,description,price,status,quantity,id_category) VALUES(?,?,?,?,?,?)",
       [
         product.name_product,
         product.description,
