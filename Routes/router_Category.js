@@ -30,8 +30,8 @@ router_Category.post("/", function (req, res, next) {
     }
   });
 });
-router_Category.delete("/:id_category ", function (req, res, next) {
-  Category.deleteCategory(req.params["id_category "], function (err, count) {
+router_Category.delete("/:id_category?", function (req, res, next) {
+  Category.deleteCategory(req.params["id_category"], function (err, count) {
     if (err) {
       res.json(err);
     } else {
@@ -39,13 +39,13 @@ router_Category.delete("/:id_category ", function (req, res, next) {
     }
   });
 });
-router_Category.put("/:id_category", function (req, res, next) {
+router_Category.put("/:id_category?", function (req, res, next) {
   Category.updateCategory(
     req.params.id_category,
     req.body,
     function (err, rows) {
       if (err) {
-        res.json(err);
+        res.json("loi nè" + err);
       } else {
         res.json(rows);
       }

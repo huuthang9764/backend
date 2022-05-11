@@ -11,16 +11,16 @@ var Product = {
       callback
     );
   },
-  addProduct: function (product, callback) {
+  addProduct: function (body, callback) {
     return db.query(
       "Insert into product(name_product,description,price,status,quantity,id_category) VALUES(?,?,?,?,?,?)",
       [
-        product.name_product,
-        product.description,
-        product.price,
-        product.status,
-        product.quantity,
-        product.id_category,
+        body.name_product,
+        body.description,
+        body.price,
+        body.status,
+        body.quantity,
+        body.id_category,
       ],
       callback
     );

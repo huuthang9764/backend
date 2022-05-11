@@ -31,8 +31,8 @@ router_Product.post("/", function (req, res, next) {
   });
 });
 
-router_Product.delete("/:id_product", function (req, res, next) {
-  Product.deleteProduct(req.params.id_product, function (err, count) {
+router_Product.delete("/:id_product?", function (req, res, next) {
+  Product.deleteProduct(req.params["id_product"], function (err, count) {
     if (err) {
       res.json(err);
     } else {
